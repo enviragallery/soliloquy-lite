@@ -1,0 +1,15 @@
+#soliloquy-header{
+	background-color: $primary-color;
+	height: $header-height;
+	margin-left: -20px;
+	#soliloquy-logo{
+		margin: 0;
+		padding-top: 25px;
+		line-height: $header-height;
+		margin-left: 20px;
+		img{
+			max-width: 288px;
+		}
+	}
+
+}
