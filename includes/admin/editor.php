@@ -56,7 +56,7 @@ class Soliloquy_Editor_Lite {
         $this->base = Soliloquy_Lite::get_instance();
 
         // Add a custom media button to the editor.
-        add_filter( 'media_buttons_context', array( $this, 'media_button' ) );
+        add_filter( 'media_buttons', array( $this, 'media_button' ) );
 
     }
 
