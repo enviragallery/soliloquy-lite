@@ -484,10 +484,11 @@ class Soliloquy_Metaboxes_Lite {
 
                 <?php endif; ?>
 
-			<h2><?php _e( 'Need Help?', 'soliloquy' ); ?></h2>
+            <h2 class="soliloquy-code-panel-title"><?php esc_html_e( 'Need Help?', 'soliloquy' ); ?></h2>
 			<div class="soliloquy-yt">
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/wMDtHKJ-TsQ" frameborder="0" allowfullscreen></iframe>
 			</div>
+
 			<?php
 
 		}

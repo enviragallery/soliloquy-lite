@@ -1,10 +1,22 @@
+.post-type-soliloquy {
+	.media-toolbar-secondary{
+		display: none;
+		visibility: hidden;
+	}
+	.media-frame-content {
+		.soliloquy-media-library.button{
+			display: none;
+			visibility: hidden;
+		}
+	}
+}
 #soliloquy-meta-edit-bulk,
 #soliloquy-meta-edit{
 
 	.attachment-details {
 	        .attachment-info {
 	            padding: 16px;
-	
+
 	            /**
 	            * Settings
 	            * - Contains one or more setting elements (Title, Alt etc)
@@ -13,14 +25,14 @@
 	                margin: 0;
 	                padding: 0;
 	                border: none;
-	        
+
 	                /**
 	                * Individual Setting (Title, Alt etc)
 	                */
 	                .soliloquy-meta.code{
 		            	margin: 0 0 20px 0;
 	                    padding: 0 0 20px 0;
-	                    border-bottom: 1px solid #ddd; 
+	                    border-bottom: 1px solid #ddd;
 							span {
 	                        /**
 	                        * Title
@@ -62,7 +74,7 @@
 	                    select {
 	                        margin: 0;
 	                    }
-	
+
 	                    span {
 	                        /**
 	                        * Title
@@ -77,7 +89,7 @@
 	                            font-weight: 700;
 	                            font-size: 14px;
 	                        }
-	
+
 	                        /**
 	                        * Description
 	                        */
@@ -90,7 +102,7 @@
 	                            margin: 0px;
 	                        }
 	                    }
-	
+
 	                    div.description {
 	                        text-align: left;
 	                        font-style: normal;
@@ -101,7 +113,7 @@
 	                    }
 	                }
 	            }
-	
+
 	            /**
 	            * Actions
 	            * - Save Button
