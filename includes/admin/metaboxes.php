@@ -556,7 +556,7 @@ class Soliloquy_Metaboxes_Lite {
 
         $tabs = array(
             'slider'     => __( 'Slider', 'soliloquy' ),
-            'config'     => __( 'Config', 'soliloquy' ),
+            'config'     => __( 'Configuration', 'soliloquy' ),
         );
         $tabs = apply_filters( 'soliloquy_tab_nav', $tabs );
         $tabs['mobile_lite'] = __( 'Mobile', 'soliloquy' );
