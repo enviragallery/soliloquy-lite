@@ -220,7 +220,8 @@
     display: block;
     color: #fff;
     text-shadow: 0 1px 1px #000;
-    text-align: center;
+	text-align: center;
+	white-space: pre-line;
     padding: 10px
 }
 .soliloquy-container .soliloquy-caption-inside a {
