@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  *
  * @package Soliloquy_Lite
- * @author  Thomas Griffin
+ * @author  Soliloquy Team
  */
 class Soliloquy_Lite {
 

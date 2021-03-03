@@ -757,7 +757,7 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Thomas Griffin"
+msgid "Soliloquy Team"
 msgstr ""
 
 #. Author URI of the plugin/theme

@@ -5,7 +5,7 @@
  * @since 1.0.0
  *
  * @package Soliloquy
- * @author  Thomas Griffin
+ * @author  Soliloquy Team
  */
 
 // Exit if accessed directly.

@@ -3,7 +3,7 @@
  * settings.js
  * http://soliloquywp.com/
  * ==========================================================
- * Copyright 2016 Thomas Griffin.
+ * Copyright 2016 Soliloquy Team.
  *
  * Licensed under the GPL License, Version 2.0 or later (the "License");
  * you may not use this file except in compliance with the License.
