@@ -1,18 +1,28 @@
 <?php
 /**
- * Review class.
+ * Review Class.
  *
- * @since 1.1.4.5
+ * @since 2.5.0
+ * @package SoliloquyWP Lite
+ * @author SoliloquyWP Team <support@soliloquywp.com>
+ */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Soliloquy Review
  *
- * @package envira
- * @author  Devin Vinson
+ * @since 2.5.0
  */
 class Soliloquy_Review {
 
 	/**
 	 * Holds the class object.
 	 *
-	 * @since 1.1.4.5
+	 * @since 2.5.0
 	 *
 	 * @var object
 	 */
@@ -21,7 +31,7 @@ class Soliloquy_Review {
 	/**
 	 * Path to the file.
 	 *
-	 * @since 1.1.4.5
+	 * @since 2.5.0
 	 *
 	 * @var string
 	 */
@@ -30,7 +40,7 @@ class Soliloquy_Review {
 	/**
 	 * Holds the review slug.
 	 *
-	 * @since 1.1.4.5
+	 * @since 2.5.0
 	 *
 	 * @var string
 	 */
@@ -39,7 +49,7 @@ class Soliloquy_Review {
 	/**
 	 * Holds the base class object.
 	 *
-	 * @since 1.1.4.5
+	 * @since 2.5.0
 	 *
 	 * @var object
 	 */
@@ -48,7 +58,7 @@ class Soliloquy_Review {
 	/**
 	 * API Username.
 	 *
-	 * @since 1.1.4.5
+	 * @since 2.5.0
 	 *
 	 * @var bool|string
 	 */
@@ -58,7 +68,7 @@ class Soliloquy_Review {
 	/**
 	 * Primary class constructor.
 	 *
-	 * @since 1.1.4.5
+	 * @since 2.5.0
 	 */
 	public function __construct() {
 
@@ -66,7 +76,7 @@ class Soliloquy_Review {
 
 		add_action( 'admin_notices', array( $this, 'review' ) );
 		add_action( 'wp_ajax_soliloquy_dismiss_review', array( $this, 'dismiss_review' ) );
-        add_filter( 'admin_footer_text',     array( $this, 'admin_footer'   ), 1, 2 );
+		add_filter( 'admin_footer_text', array( $this, 'admin_footer' ), 1, 2 );
 
 	}
 
@@ -75,14 +85,15 @@ class Soliloquy_Review {
 	 * that graciously asks them to rate us.
 	 *
 	 * @since
-	 * @param string $text
+	 * @param string $text Text String to filter.
 	 * @return string
 	 */
 	public function admin_footer( $text ) {
 		global $current_screen;
-		if ( !empty( $current_screen->id ) && strpos( $current_screen->id, 'envira' ) !== false ) {
-			$url  = 'https://wordpress.org/support/plugin/soliloquy-lite/reviews/?filter=5#new-post';
-			$text = sprintf( __( 'Please rate <strong>Soliloquy</strong> <a href="%s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> on <a href="%s" target="_blank">WordPress.org</a> to help us spread the word. Thank you from the Soliloquy team!', 'soliloquy' ), $url, $url );
+		if ( ! empty( $current_screen->id ) && strpos( $current_screen->id, 'soliloquy' ) !== false ) {
+			$url = 'https://wordpress.org/support/plugin/soliloquy-lite/reviews/?filter=5#new-post';
+			/* translators: %s: url*/
+			$text = sprintf( __( 'Please rate <strong>Soliloquy</strong> <a href="%1$s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> on <a href="%2$s" target="_blank">WordPress.org</a> to help us spread the word. Thank you from the Soliloquy team!', 'soliloquy' ), $url, $url );
 		}
 		return $text;
 	}
@@ -96,18 +107,18 @@ class Soliloquy_Review {
 
 		// Verify that we can do a check for reviews.
 		$review = get_option( 'soliloquy_review' );
-		$time	= time();
-		$load	= false;
+		$time   = time();
+		$load   = false;
 
 		if ( ! $review ) {
 			$review = array(
-				'time' 		=> $time,
-				'dismissed' => false
+				'time'      => $time,
+				'dismissed' => false,
 			);
-			$load = true;
+			$load   = true;
 		} else {
 			// Check if it has been dismissed or not.
-			if ( (isset( $review['dismissed'] ) && ! $review['dismissed']) && (isset( $review['time'] ) && (($review['time'] + DAY_IN_SECONDS) <= $time)) ) {
+			if ( ( isset( $review['dismissed'] ) && ! $review['dismissed'] ) && ( isset( $review['time'] ) && ( ( $review['time'] + DAY_IN_SECONDS ) <= $time ) ) ) {
 				$load = true;
 			}
 		}
@@ -121,7 +132,7 @@ class Soliloquy_Review {
 		update_option( 'soliloquy_review', $review );
 
 		// Run through optins on the site to see if any have been loaded for more than a week.
-		$valid	= false;
+		$valid   = false;
 		$sliders = $this->base->get_sliders();
 
 		if ( ! $sliders ) {
@@ -130,10 +141,10 @@ class Soliloquy_Review {
 
 		foreach ( $sliders as $slider ) {
 
-			$data = get_post( $slider['id']);
+			$data = get_post( $slider['id'] );
 
 			// Check the creation date of the local optin. It must be at least one week after.
-			$created = isset( $data->post_date ) ? strtotime( $data->post_date ) + (7 * DAY_IN_SECONDS) : false;
+			$created = isset( $data->post_date ) ? strtotime( $data->post_date ) + ( 7 * DAY_IN_SECONDS ) : false;
 			if ( ! $created ) {
 				continue;
 			}
@@ -152,12 +163,12 @@ class Soliloquy_Review {
 		// We have a candidate! Output a review message.
 		?>
 		<div class="notice notice-info is-dismissible soliloquy-review-notice">
-			<p><?php _e( 'Hey, I noticed you created a slider with Soliloquy - that’s awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress to help us spread the word and boost our motivation.', 'soliloquy-gallery' ); ?></p>
-			<p><strong><?php _e( '~ Syed Balkhi<br>Co-Founder of Soliloquy', 'soliloquy' ); ?></strong></p>
+			<p><?php esc_html_e( 'Hey, I noticed you created a slider with Soliloquy - that’s awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress to help us spread the word and boost our motivation.', 'soliloquy-gallery' ); ?></p>
+			<p><strong>Nathan Singh<br><?php esc_html_e( 'Co-Founder of Soliloquy', 'soliloquy' ); ?></strong></p>
 			<p>
-				<a href="https://wordpress.org/support/plugin/soliloquy-lite/reviews/?filter=5#new-post" class="soliloquy-dismiss-review-notice soliloquy-review-out" target="_blank" rel="noopener"><?php _e( 'Ok, you deserve it', 'soliloquy-gallery' ); ?></a><br>
-				<a href="#" class="soliloquy-dismiss-review-notice" target="_blank" rel="noopener"><?php _e( 'Nope, maybe later', 'soliloquy' ); ?></a><br>
-				<a href="#" class="soliloquy-dismiss-review-notice" target="_blank" rel="noopener"><?php _e( 'I already did', 'soliloquy' ); ?></a><br>
+				<a href="https://wordpress.org/support/plugin/soliloquy-lite/reviews/?filter=5#new-post" class="soliloquy-dismiss-review-notice soliloquy-review-out" target="_blank" rel="noopener"><?php esc_html_e( 'Ok, you deserve it', 'soliloquy-gallery' ); ?></a><br>
+				<a href="#" class="soliloquy-dismiss-review-notice" target="_blank" rel="noopener"><?php esc_html_e( 'Nope, maybe later', 'soliloquy' ); ?></a><br>
+				<a href="#" class="soliloquy-dismiss-review-notice" target="_blank" rel="noopener"><?php esc_html_e( 'I already did', 'soliloquy' ); ?></a><br>
 			</p>
 		</div>
 		<script type="text/javascript">
@@ -190,14 +201,18 @@ class Soliloquy_Review {
 			$review = array();
 		}
 
-		$review['time'] 	 = time();
+		$review['time']      = time();
 		$review['dismissed'] = true;
 
 		update_option( 'soliloquy_review', $review );
-		die;
+		die();
 	}
 
-
+	/**
+	 * Singleton Instance.
+	 *
+	 * @return object
+	 */
 	public static function get_instance() {
 
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Soliloquy_Review ) ) {
