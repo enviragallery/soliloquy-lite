@@ -1,3 +1,4 @@
+/* global soliloquy_editor */
 /* ==========================================================
  * editor.js
  * http://soliloquywp.com/
@@ -34,7 +35,7 @@
  *    This will give you access to the entire array of slider data that
  *    the user has selected, including ID, title, slug and settings.
  * ==========================================================
- * Copyright 2013 Thomas Griffin.
+ * Copyright 2013 Soliloquy Team.
  *
  * Licensed under the GPL License, Version 2.0 or later (the "License");
  * you may not use this file except in compliance with the License.
