@@ -1,8 +1,8 @@
 === Slider by Soliloquy - Responsive Image Slider for WordPress ===
 Contributors: soliloquyslider, nathansingh, dimensionmedia, chrisakelley
-Tags: slider, image slider, video slider, gallery slider, responsive slider, post slider, photo slider, youtube slider, woocommerce slider, carousel slider, pdf slider, best slider, instagram slider 
+Tags: slider, image slider, video slider, gallery slider, responsive slider, post slider, photo slider, youtube slider, woocommerce slider, carousel slider, pdf slider, best slider, instagram slider
 Requires at least: 4.6.0
-Tested up to: 5.5.0
+Tested up to: 5.7.2
 Requires PHP: 5.3
 Stable tag: trunk
 License: GNU General Public License v2.0 or later
@@ -54,11 +54,11 @@ On top of our themes, you can use custom CSS to customize anything.
 
 See the demo of our <a href="http://soliloquywp.com/demo/slider-themes-demo/?utm_source=wprepo&utm_medium=link&utm_campaign=liteversion" rel="friend">WordPress slider themes</a>.
 
-= WooCommerce Products = 
+= WooCommerce Products =
 
-Easily create product slideshows with just a few clicks. 
+Easily create product slideshows with just a few clicks.
 
-You can filter by category, price, availability, featured, or another criteria. 
+You can filter by category, price, availability, featured, or another criteria.
 You can also include or exclude specific products.
 
 Watch the <a href="http://soliloquywp.com/addons/woocommerce-addon/?utm_source=wprepo&utm_medium=link&utm_campaign=liteversion" rel="friend">WooCommerce product slides video</a>.
@@ -69,7 +69,7 @@ Slideshows for blog posts, products, testimonials, photo galleries, and more. Al
 
 Watch the <a href="http://soliloquywp.com/addons/featured-content/?utm_source=wprepo&utm_medium=link&utm_campaign=liteversion" rel="friend">WooCommerce featured content video</a>.
 
-= Lightbox = 
+= Lightbox =
 
 For your images, photos, and galleries. Opens your images in a full screen mode that's easy to browse on all devices.
 
@@ -83,13 +83,13 @@ You can create slideshows for carousel images, videos, or even complete gallery 
 
 See the <a href="http://soliloquywp.com/demo/carousel-slider-demo/?utm_source=wprepo&utm_medium=link&utm_campaign=liteversion" rel="friend">Carousel demo</a>.
 
-= Dynamic Slides = 
+= Dynamic Slides =
 
 Automatically create slideshows from blog posts, testimonials, Instagram images, and galleries.
 
 = Slides with Thumbnails =
 
-Add thumbnail images as your navigation. 
+Add thumbnail images as your navigation.
 
 You can configure the size, position, and more.
 
@@ -258,6 +258,9 @@ The pro version of Soliloquy has many more features and enables you to do so muc
 
 == Changelog ==
 
+= 2.6.2 =
+* Update: Ready jQuery for WordPress 5.8+
+
 = 2.6.1 =
 * Update: Renamed 'Configuration' label in tab navigation.
 * Added: Add YouTube Video under 'Get Help' in sidebar.
@@ -282,7 +285,7 @@ The pro version of Soliloquy has many more features and enables you to do so muc
 * Fix: Minor bug fixes
 
 = 2.5.5 =
-* Fix: Remove Contributor Caps 
+* Fix: Remove Contributor Caps
 * Fix: Conflict with ACF
 * Fix: Minor bug fixes
 
@@ -339,7 +342,7 @@ The pro version of Soliloquy has many more features and enables you to do so muc
 * Fix: Cases where Meta Edit for slides in unavailable.
 
 = 2.5.0.1 =
-* Fix: PHP 5.2 compat issues causing admin screen to be un-functional 
+* Fix: PHP 5.2 compat issues causing admin screen to be un-functional
 * Fix: Numerous UI bug fixes
 
 = 2.5.0 =
