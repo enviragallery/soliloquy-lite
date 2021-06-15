@@ -2,7 +2,7 @@
 Contributors: soliloquyslider, nathansingh, dimensionmedia, chrisakelley
 Tags: slider, image slider, video slider, gallery slider, responsive slider, post slider, photo slider, youtube slider, woocommerce slider, carousel slider, pdf slider, best slider, instagram slider 
 Requires at least: 4.6.0
-Tested up to: 5.4.0
+Tested up to: 5.5.0
 Requires PHP: 5.3
 Stable tag: trunk
 License: GNU General Public License v2.0 or later
@@ -257,6 +257,10 @@ In v2.0 of Soliloquy Lite, we introduce a big plugin architecture change. You ne
 The pro version of Soliloquy has many more features and enables you to do so much more than Soliloquy Lite, such as add images from your Media Library and use your own custom videos from YouTube, Vimeo and Wistia!
 
 == Changelog ==
+
+= 2.6.1 =
+* Update: Renamed 'Configuration' label in tab navigation.
+* Added: Add YouTube Video under 'Get Help' in sidebar.
 
 = 2.6.0 =
 * Fix: Replace deprecated filter media_buttons_context.

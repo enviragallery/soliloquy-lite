@@ -315,7 +315,7 @@ class Soliloquy_Shortcode_Lite {
 		}
 
 		$output  = apply_filters( 'soliloquy_output_before_image', $output, $id, $item, $data, $i );
-		$output .= '<img loading="lazy" id="soliloquy-image-' . sanitize_html_class( $id ) . '" class="soliloquy-image soliloquy-image-' . $i . '" src="' . esc_url( $imagesrc ) . '" alt="' . ( isset( $item['alt'] ) ? esc_attr( $item['alt'] ) : '' ) . '"' . apply_filters( 'soliloquy_output_image_attr', '', $id, $item, $data, $i ) . ' />';
+		$output .= '<img id="soliloquy-image-' . sanitize_html_class( $id ) . '" class="soliloquy-image soliloquy-image-' . $i . '" src="' . esc_url( $imagesrc ) . '" alt="' . ( isset( $item['alt'] ) ? esc_attr( $item['alt'] ) : '' ) . '"' . apply_filters( 'soliloquy_output_image_attr', '', $id, $item, $data, $i ) . ' />';
 		$output  = apply_filters( 'soliloquy_output_after_image', $output, $id, $item, $data, $i );
 
 		// If our image is linked, close the link.
@@ -384,7 +384,7 @@ class Soliloquy_Shortcode_Lite {
 
 				jQuery('#soliloquy-container-<?php echo sanitize_html_class( $data['id'] ); ?>').css('height', Math.round(jQuery('#soliloquy-container-<?php echo sanitize_html_class( $data['id'] ); ?>').width()/(<?php echo esc_js( $this->get_config( 'slider_width', $data ) ); ?>/<?php echo esc_js( $this->get_config( 'slider_height', $data ) ); ?>)));
 
-				jQuery(window).on('load', function(){
+				jQuery(window).load(function(){
 					var $ = jQuery;
 					<?php do_action( 'soliloquy_api_start', $data ); ?>
 

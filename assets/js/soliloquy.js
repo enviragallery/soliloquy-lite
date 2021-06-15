@@ -59,7 +59,7 @@ function soliloquyYouTubeOnStateChange(event) {
 		}
 	}
 }
-// function onYouTubeIframeAPIReady() { }
+function onYouTubeIframeAPIReady() { }
 function soliloquyVimeoVids(data, id, width, height, holder, $) {
 
 	// Immediately make the holder visible and increase z-index to overlay the player icon.

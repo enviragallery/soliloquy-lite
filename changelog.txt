@@ -1,3 +1,7 @@
+= 2.6.1 =
+* Update: Renamed 'Configuration' label in tab navigation.
+* Added: Add YouTube Video under 'Get Help' in sidebar.
+
 = 2.6.0 =
 * Fix: Replace deprecated filter media_buttons_context.
 
