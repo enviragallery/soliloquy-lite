@@ -471,52 +471,52 @@ endforeach;
 		 * @access public
 		 * @return void
 		 */
-	public function code_panel( $post ) {
+		public function code_panel( $post ) {
 
-		$slider_data = get_post_meta( $post->ID, '_sol_slider_data', true );
+			$slider_data = get_post_meta( $post->ID, '_sol_slider_data', true );
 
-		if ( isset( $post->post_status ) && 'auto-draft' == $post->post_status ) {
-			return;
-		}
+			if ( isset( $post->post_status ) && 'auto-draft' != $post->post_status ) {
 
-		// Check for our meta overlay helper.
-		$helper = get_post_meta( $post->ID, '_sol_just_published', true );
-		$class  = '';
-		if ( $helper ) {
-			$class = 'soliloquy-helper-active';
-			delete_post_meta( $post->ID, '_sol_just_published' );
-		}
-		?>
+				// Check for our meta overlay helper.
+				$helper = get_post_meta( $post->ID, '_sol_just_published', true );
+				$class  = '';
+				if ( $helper ) {
+					$class = 'soliloquy-helper-active';
+					delete_post_meta( $post->ID, '_sol_just_published' );
+				}
+				?>
 
-			<p><?php _e( 'You can place this slider into your posts, pages, custom post types or widgets using the shortcode below:', 'soliloquy' ); ?></p>
-				<code id="soliloquy-shortcode" class="soliloquy-code"><?php echo '[soliloquy id="' . $post->ID . '"]'; ?></code>
-				  <a href="#" class="soliloquy-clipboard" data-clipboard-target="#soliloquy-shortcode"><?php _e( 'Copy to Clipboard', 'soliloquy' ); ?></a>
+				<p><?php esc_html_e( 'You can place this slider into your posts, pages, custom post types or widgets using the shortcode below:', 'soliloquy' ); ?></p>
+					<code id="soliloquy-shortcode" class="soliloquy-code"><?php echo '[soliloquy id="' . $post->ID . '"]'; ?></code>
+					<a href="#" class="soliloquy-clipboard" data-clipboard-target="#soliloquy-shortcode"><?php esc_html_e( 'Copy to Clipboard', 'soliloquy' ); ?></a>
 
-			<?php if ( ! empty( $slider_data['config']['slug'] ) ) : ?>
-					<br><code id="soliloquy-slug-shortcode" class="soliloquy-code"><?php echo '[soliloquy slug="' . $slider_data['config']['slug'] . '"]'; ?></code>
-					<a href="#" class="soliloquy-clipboard" data-clipboard-target="#soliloquy-slug-shortcode"><?php _e( 'Copy to Clipboard', 'soliloquy' ); ?></a>
+					<?php if ( ! empty( $slider_data['config']['slug'] ) ) : ?>
+						<br><code id="soliloquy-slug-shortcode" class="soliloquy-code"><?php echo '[soliloquy slug="' . $slider_data['config']['slug'] . '"]'; ?></code>
+						<a href="#" class="soliloquy-clipboard" data-clipboard-target="#soliloquy-slug-shortcode"><?php esc_html_e( 'Copy to Clipboard', 'soliloquy' ); ?></a>
 
-				<?php endif; ?>
+					<?php endif; ?>
 
 
-			<p><?php _e( "You can place this slider into your theme's template files by using the template tag below:", 'soliloquy' ); ?></p>
-				<code id="soliloquy-template-tag" class="soliloquy-code"><?php echo 'if ( function_exists( \'soliloquy\' ) ) { soliloquy( \'' . $post->ID . '\' ); }'; ?></code>
-			 <a href="#" class="soliloquy-clipboard" data-clipboard-target="#soliloquy-template-tag"><?php _e( 'Copy to Clipboard', 'soliloquy' ); ?></a>
+				<p><?php esc_html_e( "You can place this slider into your theme's template files by using the template tag below:", 'soliloquy' ); ?></p>
+					<code id="soliloquy-template-tag" class="soliloquy-code"><?php echo 'if ( function_exists( \'soliloquy\' ) ) { soliloquy( \'' . $post->ID . '\' ); }'; ?></code>
+				<a href="#" class="soliloquy-clipboard" data-clipboard-target="#soliloquy-template-tag"><?php esc_html_e( 'Copy to Clipboard', 'soliloquy' ); ?></a>
 
-			<?php if ( ! empty( $slider_data['config']['slug'] ) ) : ?>
+					<?php if ( ! empty( $slider_data['config']['slug'] ) ) : ?>
 
-					<br><code id="soliloquy-slug-tag" class="soliloquy-code"><?php echo 'if ( function_exists( \'soliloquy\' ) ) { soliloquy( \'' . $slider_data['config']['slug'] . '\', \'slug\' ); }'; ?></code>
-				   <a href="#" class="soliloquy-clipboard" data-clipboard-target="#soliloquy-slug-tag"><?php _e( 'Copy to Clipboard', 'soliloquy' ); ?></a>
+						<br><code id="soliloquy-slug-tag" class="soliloquy-code"><?php echo 'if ( function_exists( \'soliloquy\' ) ) { soliloquy( \'' . $slider_data['config']['slug'] . '\', \'slug\' ); }'; ?></code>
+					<a href="#" class="soliloquy-clipboard" data-clipboard-target="#soliloquy-slug-tag"><?php esc_html_e( 'Copy to Clipboard', 'soliloquy' ); ?></a>
 
-				<?php endif; ?>
+					<?php endif; ?>
 
-			<h2><?php _e( 'Need Help?', 'soliloquy' ); ?></h2>
+			<?php } ?>
+
+			<h2 class="soliloquy-code-panel-title"><?php esc_html_e( 'Need Help?', 'soliloquy' ); ?></h2>
 			<div class="soliloquy-yt">
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/wMDtHKJ-TsQ" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<?php
 
-	}
+		}
 
 
 	/**
@@ -582,7 +582,7 @@ endforeach;
 
 		$tabs                    = array(
 			'slider' => __( 'Slider', 'soliloquy' ),
-			'config' => __( 'Config', 'soliloquy' ),
+			'config' => __( 'Configuration', 'soliloquy' ),
 		);
 		$tabs                    = apply_filters( 'soliloquy_tab_nav', $tabs );
 		$tabs['mobile_lite']     = __( 'Mobile', 'soliloquy' );

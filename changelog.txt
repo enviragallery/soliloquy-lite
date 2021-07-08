@@ -1,3 +1,10 @@
+= 2.6.2 =
+* Update: Ready jQuery for WordPress 5.8+
+
+= 2.6.1 =
+* Update: Renamed 'Configuration' label in tab navigation.
+* Added: Add YouTube Video under 'Get Help' in sidebar.
+
 = 2.6.0 =
 * Fix: Replace deprecated filter media_buttons_context.
 
@@ -17,7 +24,7 @@
 * Fix: Minor bug fixes
 
 = 2.5.5 =
-* Fix: Remove Contributor Caps 
+* Fix: Remove Contributor Caps
 * Fix: Conflict with ACF
 * Fix: Minor bug fixes
 
@@ -74,7 +81,7 @@
 * Fix: Cases where Meta Edit for slides in unavailable.
 
 = 2.5.0.1 =
-* Fix: PHP 5.2 compat issues causing admin screen to be un-functional 
+* Fix: PHP 5.2 compat issues causing admin screen to be un-functional
 * Fix: Numerous UI bug fixes
 
 = 2.5.0 =
